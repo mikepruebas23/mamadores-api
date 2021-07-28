@@ -12,8 +12,8 @@ const app = express();
 //conecct to mongose
 mongoose.Promise = global.Promise;
 mongoose.connect(
-    'mongodb://localhost/mamadores-api',
-    // 'mongodb+srv://mikegeko:mikegeko1@cluster0.g69j4.mongodb.net/api-store?retryWrites=true&w=majority',
+    // 'mongodb://localhost/mamadores-api',
+    'mongodb+srv://mikegeko:mikegeko1@cluster0.g69j4.mongodb.net/api-store?retryWrites=true&w=majority',
     {
         useNewUrlParser : true,
     }
@@ -35,9 +35,9 @@ app.use('/', routes());
 app.use(express.static('uploads'));
 
 //server port
-// app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000);
 
 //local dev
-app.listen(5000, function(){
-    console.log("Servidor Web en Ejecucion!");
-});
+// app.listen(5000, function(){
+    // console.log("Servidor Web en Ejecucion!");
+// });
