@@ -156,3 +156,33 @@ small {
     margin-top: 10px;
     text-align: center;
 }
+
+@media only screen and (max-width: 980px) and (min-width: 425px) {  
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 200px;
+        padding: 20px;
+        box-shadow: 0 0 0 1px hsl(240deg 30% 28% / 5%), 0 2px 5px 0 hsl(240deg 30% 28% / 10%), 0 1px 1px 0 hsl(0deg 0% 0% / 7%);
+        background-color: #393d44;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .card {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 10px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        /*   border: 1px solid black; */
+        box-sizing: border-box;
+        box-shadow: 0 0 0 1px hsl(240deg 30% 28% / 5%), 0 2px 5px 0 hsl(240deg 30% 28% / 10%), 0 1px 1px 0 hsl(0deg 0% 0% / 7%);
+        margin-bottom: 50px;
+    }
+} 
