@@ -48,5 +48,9 @@ thisForm.addEventListener('submit', async function (e) {
     });
 
     const result = await response.json();
-    console.log(result)
+    document.getElementById('name').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('category').value = '';
+    // document.getElementById('myform').reset();
+    console.log(result);
 });
