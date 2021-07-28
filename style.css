@@ -80,6 +80,12 @@ textarea {
     border-radius: 3px;
 }
 
+select {
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}
+
 input, textarea,select {
     margin-bottom: 20px;
 }
@@ -282,7 +288,7 @@ small {
 
     .container-card,.formulario{
         width: 100%;
-        margin: 5px;
+        margin-bottom: 180px;
     }
     .btn{
         width: 48%;
