@@ -42,13 +42,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 0 1px hsl(240deg 30% 28% / 5%), 0 2px 5px 0 hsl(240deg 30% 28% / 10%), 0 1px 1px 0 hsl(0deg 0% 0% / 7%);
+    /* box-shadow: 0 0 0 1px hsl(240deg 30% 28% / 5%), 0 2px 5px 0 hsl(240deg 30% 28% / 10%), 0 1px 1px 0 hsl(0deg 0% 0% / 7%); */
     margin-bottom: 15px;
     
 }
 
 .formulario{
-    width: 48%;
+    width: 30%;
+    height: 40%;
     /* background-color: #393d44; */
     padding: 10px;
     border-radius: 3px;
@@ -69,7 +70,18 @@ input {
     background: #e2e2e2;
     padding: 10px;
     border-radius: 3px;
-    margin-bottom: 10px;
+}
+
+textarea {
+    margin-top: 10px; 
+    width: 100%;
+    border: none;
+    background: #e2e2e2;
+    border-radius: 3px;
+}
+
+input, textarea,select {
+    margin-bottom: 20px;
 }
 
 .card {
@@ -131,8 +143,6 @@ input {
     justify-content: center;
     padding: 5px;
 }
-
-
 
 .username {
     font-size: 20px;
@@ -207,8 +217,20 @@ input {
     font-family: 'Fredoka One', cursive;
 }
 
+.btn-Form {
+    width: 100%;
+    padding: 10px;
+    color: black;
+    font-size: 24px;
+    border-radius: 3px;
+    margin-top: 50px;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+}
 
-.btn:hover {
+
+.btn:hover,
+.btn-Form {
     cursor: pointer;
     background-color: #e0e0e0;
 }
@@ -265,5 +287,10 @@ small {
     .btn{
         width: 48%;
         font-size: 19px;
+    }
+
+    /* slider 2   */
+    .formulario{
+        width: 80%;
     }
 } 

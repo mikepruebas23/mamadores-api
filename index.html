@@ -102,28 +102,42 @@
             <div class="formulario">
                 <form id="myForm">
                     <label for="name">Nombre: </label>
-                    <input id="name" name="name" placeholder="Nombre o titulo">
+                    <input id="name" name="name" placeholder="Nombre o Titulo" maxlength="15" autocomplete="off" required>
                     <br>
                     <label for="description">Mensaje: </label>
-                    <input id="description" name="description" placeholder="¿Que quieres contarle al mundo?">
+                    <!-- <input id="description"  placeholder="¿Que quieres contarle al mundo?"> -->
+                    <textarea id="description" name="description" placeholder="¿Que quieres contarle al mundo?" maxlength="70" required></textarea>
                     <br>
                     <label for="category">Categoria: </label>
-                    <input id="category" name="category">
+                    <!-- <input id="category" name="category"> -->
+                    <select id="category" name="category" form="myForm" required>
+                        <option value="" selected disabled hidden>Selecciona una categoria</option>
+                        <option value="veneno">VENENO</option>
+                        <option value="gym">GYM</option>
+                        <option value="social">SOCIAL</option>
+                        <option value="estilo">ESTILO</option>
+                        <option value="salud">SALUD</option>
+                        <option value="feliz">FELIZ</option>
+                        <option value="deportes">DEPORTES</option>
+                        <option value="comida">COMIDA</option>
+                      </select>
                     <br>
-                    <button class="btn" id="postSubmit" type="submit" ><i class="fas fa-check"></i></button>
+                    <!-- <button class="btn" id="postSubmit" type="submit" ><i class="fas fa-check"></i></button> -->
+                    <button class="btn-Form" id="postSubmit" type="submit" >PUBLICAR</i></button>
                 </form>
             </div>
         
             
-            <button class="btn" onclick="postData()">POST</button>
+            <!-- <button class="btn" onclick="postData()">POST</button> -->
           </div>
-          <div class="swiper-slide">Slide 3</div>
+
+          <!-- <div class="swiper-slide">Slide 3</div>
           <div class="swiper-slide">Slide 4</div>
           <div class="swiper-slide">Slide 5</div>
           <div class="swiper-slide">Slide 6</div>
           <div class="swiper-slide">Slide 7</div>
           <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div>
+          <div class="swiper-slide">Slide 9</div> -->
         </div>
         <div class="swiper-pagination"></div>
       </div>
