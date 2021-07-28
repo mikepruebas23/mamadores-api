@@ -179,7 +179,7 @@ img {
 }
 
 .btn {
-    width: 65%;
+    width: 25%;
     padding: 10px;
     color: black;
     font-size: 24px;
@@ -188,6 +188,15 @@ img {
     border: none;
     font-family: 'Fredoka One', cursive;
 }
+/* .btnGet {
+    width: 15%;
+    padding: 10px;
+    color: black;
+    font-size: 24px;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+} */
 
 .btn:hover {
     cursor: pointer;
@@ -202,12 +211,12 @@ small {
 
 @media only screen and (max-width: 980px) and (min-width: 320px) {  
     .container {
-        width: 85%;
+        width: 90%;
         margin: 0 auto;
         margin-top: 200px;
         padding: 20px;
         box-shadow: 0 0 0 1px hsl(240deg 30% 28% / 5%), 0 2px 5px 0 hsl(240deg 30% 28% / 10%), 0 1px 1px 0 hsl(0deg 0% 0% / 7%);
-        background-color: #393d44;
+        /* background-color: #393d44; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -216,7 +225,7 @@ small {
     }
 
     .card {
-        width: 100%;
+        width: 95%;
     }
 
     .time {
@@ -234,5 +243,14 @@ small {
 
     .comment {
         font-size: 16px;
+    }
+
+    .container-card,.formulario{
+        width: 100%;
+        margin: 5px;
+    }
+    .btn{
+        width: 48%;
+        font-size: 19px;
     }
 } 
