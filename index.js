@@ -98,11 +98,14 @@ thisForm.addEventListener('submit', async function (e) {
         document.getElementById('description').value = '';
         document.getElementById('category').value = '';
 
-        postSubmit.classList.remove("btn-blocked");
-        postSubmit.disabled = false;
         Swal.fire(result.message);
+        // postSubmit.classList.remove("btn-blocked");
+        // postSubmit.disabled = false;
     })
     .catch(function () {
+        document.getElementById('name').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('category').value = '';
         Swal.fire('Error al Publicar..');
     });
     
