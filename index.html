@@ -21,12 +21,12 @@
           <div class="swiper-slide" style="background-color:#393d44;">
             
             <div class="container-message">
-                <div class="container-image-1">
-                    <img src="https://mamadores-api.herokuapp.com/YXLxtDqsG.jpeg" alt="">
+                <div id="cImg" class="container-image-1">
+                    <!-- <img src="https://mamadores-api.herokuapp.com/YXLxtDqsG.jpeg" alt=""> -->
                 </div>
                 <div class="container-card">
                     <div class="card">
-                        <div class="card-img">
+                        <div id="img-post" class="card-img">
                             <img class="img-profile" src="https://picsum.photos/200/300" alt="user-img">
                             <div class="conn online"></div>
                         </div>
@@ -60,7 +60,7 @@
                     <input id="name" name="name" placeholder="Nombre o Titulo" maxlength="15" autocomplete="off" required>
                     <br>
                     <label for="description">Mensaje: </label>
-                    <input id="image" name="image" type="file">
+                    <input id="image" name="image" type="file" accept="image/png, image/jpeg" />
                     <textarea id="description" name="description" placeholder="¿Que quieres contarle al mundo?" maxlength="70" required></textarea>
                     <br>
                     <label for="category">Categoria: </label>
@@ -75,6 +75,7 @@
                         <option value="feliz">FELIZ</option>
                         <option value="deportes">DEPORTES</option>
                         <option value="comida">COMIDA</option>
+                        <option value="confesiones">CONFESIONES</option>
                       </select>
                     <br>
                     <!-- <button class="btn" id="postSubmit" type="submit" ><i class="fas fa-check"></i></button> -->

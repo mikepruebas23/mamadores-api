@@ -254,6 +254,11 @@ select {
     background-color: #e0e0e0;
 }
 
+.btn-blocked {
+    color: #585858;
+    background-color: #929292;
+}
+
 small {
     display: block;
     margin-top: 10px;
@@ -313,7 +318,7 @@ small {
     .container-card,
     .formulario {
         width: 100%;
-        margin-bottom: 180px;
+        margin-bottom: 90px;
     }
 
     .btn {
