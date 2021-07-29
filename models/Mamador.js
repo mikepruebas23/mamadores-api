@@ -7,7 +7,8 @@ const mamadorSchema = new Schema({
 
     name: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true
     },
     description: {
         type: String
@@ -18,6 +19,14 @@ const mamadorSchema = new Schema({
     category: {
         type: String,
         trim: true
+    },
+    like: {
+        type: Number,
+        default: 0
+    },
+    created: {
+        type: Date,
+        default: Date.now
     }
 });
 

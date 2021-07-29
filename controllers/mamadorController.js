@@ -13,14 +13,6 @@ exports.fileUpload = (req, res ,next) => {
     });
 };
 
-// exports.add = async(req, res,next) => {
-//     Mamador.findByIdAndUpdate( {$inc: { seq: 1} }, function(error)   {
-//         if(error)
-//             return next(error);
-//         next();
-//     });
-// };
-
 
 //Add mamador
 exports.add = async (req, res) => {
@@ -31,14 +23,14 @@ exports.add = async (req, res) => {
             mamador.image = req.file.filename;
         }
         else {
-            mamador.image = 'No';
+            mamador.image = 0;
         }
         await mamador.save();
-        res.json({message: 'New mamador Added'});
+        res.json({message: 'Publicado con Exito!'});
     }
     catch(error){
         if(error.code === 11000){
-            res.status(400).json({message:`Ya existe un mamador con el codigo: ${req.body.code}`});
+            res.status(400).json({message:`Ya existe una publicacion con ese nombre: ${req.body.name}`});
         }
         else {
             res.status(400).json({message: 'Error'});
