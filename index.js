@@ -47,7 +47,7 @@ function getRandomPost() {
 
             if(res.image != '0' && res.image != 'No'){
                 while (imgPost.firstChild) imgPost.removeChild(imgPost.firstChild);
-                console.log("RES: ",URL_API_GET_IMAGE+res.image);
+                // console.log("RES: ",URL_API_GET_IMAGE+res.image);
                 let newImg = document.createElement("img");
                 newImg.src = URL_API_GET_IMAGE + res.image;
                 newImg.classList.add("card-img");
@@ -68,8 +68,8 @@ function getRandomPost() {
 const thisForm = document.getElementById('myForm');
 thisForm.addEventListener('submit', async function (e) {
 
-    postSubmit.classList.add("btn-blocked");
-    postSubmit.disabled = true;
+    // postSubmit.classList.add("btn-blocked");
+    // postSubmit.disabled = true;
 
     e.preventDefault();
 
@@ -90,23 +90,25 @@ thisForm.addEventListener('submit', async function (e) {
         redirect: 'follow'
     };
 
-    const response = await fetch(URL_API_CREATE_NEW_POST, requestOptions).then(() =>{
-
-        const result = response.json();
+    await fetch(URL_API_CREATE_NEW_POST, requestOptions).then((response) =>{
+        // console.log("RESPONSE: ", response);
+        // const result = response.json();
 
         document.getElementById('name').value = '';
         document.getElementById('description').value = '';
         document.getElementById('category').value = '';
 
-        Swal.fire(result.message);
-        // postSubmit.classList.remove("btn-blocked");
-        // postSubmit.disabled = false;
+        postSubmit.classList.remove("btn-blocked");
+        postSubmit.disabled = false;
+        Swal.fire("Publicacion con Exito!");
     })
-    .catch(function () {
-        document.getElementById('name').value = '';
-        document.getElementById('description').value = '';
-        document.getElementById('category').value = '';
+    .catch((error) =>{
+        console.log(error);
+        // document.getElementById('name').value = '';
+        // document.getElementById('description').value = '';
+        // document.getElementById('category').value = '';
         Swal.fire('Error al Publicar..');
+
     });
     
 });
