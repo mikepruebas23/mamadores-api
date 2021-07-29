@@ -8,7 +8,7 @@ const postCategory = document.getElementById('postCategory');
 
 function getRandomPost() {
 
-    
+
 
     while (stock.firstChild) stock.removeChild(stock.firstChild);
     while (frase.firstChild) frase.removeChild(frase.firstChild);
@@ -42,44 +42,61 @@ function getRandomPost() {
     };
 
     fetch(URL_API_GET_ONE_RANDOM_POST)
-    .then(response => response.json())
-    .then((res) => {
+        .then(response => response.json())
+        .then((res) => {
 
-        while (stock.firstChild) stock.removeChild(stock.firstChild);
+            // console.log("RES: ",res.image);
+            // if(res.image != '0'){
 
-        let newDiv = document.createElement("div");
-        let newComent = document.createElement("div");
-        let newCategory = document.createElement("div");
+            // }
 
-        newDiv.innerHTML = '@' + res.name;
-        newComent.innerHTML = res.description;
-        newCategory.innerHTML = " " + res.category + " ";
+            while (stock.firstChild) stock.removeChild(stock.firstChild);
 
-        stock.appendChild(newDiv);
-        frase.appendChild(newComent);
-        postCategory.appendChild(newCategory);
-    })
-    .catch(function(){
-        Swal.fire('Error al cargar la publicación.');
-    });
+            let newDiv = document.createElement("div");
+            let newComent = document.createElement("div");
+            let newCategory = document.createElement("div");
 
-    
+            newDiv.innerHTML = '@' + res.name;
+            newComent.innerHTML = res.description;
+            newCategory.innerHTML = " " + res.category + " ";
+
+            stock.appendChild(newDiv);
+            frase.appendChild(newComent);
+            postCategory.appendChild(newCategory);
+        })
+        .catch(function () {
+            Swal.fire('Error al cargar la publicación.');
+        });
+
+
 
 }
 
 
 const thisForm = document.getElementById('myForm');
 thisForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const formData = new FormData(thisForm).entries()
-    const response = await fetch(URL_API_CREATE_NEW_POST, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(Object.fromEntries(formData))
-    });
 
+
+    e.preventDefault();
+
+    let name = document.getElementById('name').value;
+    let description = document.getElementById('description').value;
+    let category = document.getElementById('category').value;
+    let fileInput = document.querySelector('#image');
+
+    var formdata = new FormData();
+    formdata.append("name", name);
+    formdata.append("description", description);
+    formdata.append("category", category);
+    formdata.append("image", fileInput.files[0], fileInput.value);
+
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    const response = await fetch(URL_API_CREATE_NEW_POST, requestOptions);
     const result = await response.json();
 
     document.getElementById('name').value = '';

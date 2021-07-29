@@ -19,7 +19,11 @@
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
           <div class="swiper-slide" style="background-color:#393d44;">
+            
             <div class="container-message">
+                <div class="container-image-1">
+                    <img src="https://mamadores-api.herokuapp.com/YXLxtDqsG.jpeg" alt="">
+                </div>
                 <div class="container-card">
                     <div class="card">
                         <div class="card-img">
@@ -45,6 +49,7 @@
                 
                 <button class="btn" onclick="getRandomPost()"><i class="fas fa-sync"></i></button>
             </div>
+            <div class="container-image-2"></div>
           </div>
 
           <!-- Slide 2 -->
@@ -55,7 +60,7 @@
                     <input id="name" name="name" placeholder="Nombre o Titulo" maxlength="15" autocomplete="off" required>
                     <br>
                     <label for="description">Mensaje: </label>
-                    <input type="file" onchange="previewFile()"><br>
+                    <input id="image" name="image" type="file">
                     <textarea id="description" name="description" placeholder="¿Que quieres contarle al mundo?" maxlength="70" required></textarea>
                     <br>
                     <label for="category">Categoria: </label>
