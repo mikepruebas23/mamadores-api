@@ -247,7 +247,7 @@ small {
     text-align: center;
 }
 
-@media only screen and (max-width: 980px) and (min-width: 320px) {  
+@media only screen and (max-width: 980px) and (min-width: 319px) {  
     .container {
         width: 90%;
         margin: 0 auto;
