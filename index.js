@@ -7,7 +7,7 @@ const frase = document.getElementById('comment');
 const contentImg = document.getElementById('content-img');
 const postCategory = document.getElementById('postCategory');
 const postSubmit = document.getElementById("postSubmit");
-const imgPost = document.getElementById('cImg');
+// const imgPost = document.getElementById('cImg');
 
 function getRandomPost() {
 
@@ -45,17 +45,17 @@ function getRandomPost() {
             postCategory.appendChild(newCategory);
             // imgPost.appendChild(newImg); 
 
-            if(res.image != '0' && res.image != 'No'){
-                while (imgPost.firstChild) imgPost.removeChild(imgPost.firstChild);
-                // console.log("RES: ",URL_API_GET_IMAGE+res.image);
-                let newImg = document.createElement("img");
-                newImg.src = URL_API_GET_IMAGE + res.image;
-                newImg.classList.add("card-img");
-                imgPost.appendChild(newImg); 
-            }
-            else {
-                while (imgPost.firstChild) imgPost.removeChild(imgPost.firstChild);
-            }
+            // if(res.image != '0' && res.image != 'No'){
+            //     while (imgPost.firstChild) imgPost.removeChild(imgPost.firstChild);
+            //     // console.log("RES: ",URL_API_GET_IMAGE+res.image);
+            //     let newImg = document.createElement("img");
+            //     newImg.src = URL_API_GET_IMAGE + res.image;
+            //     newImg.classList.add("card-img");
+            //     imgPost.appendChild(newImg); 
+            // }
+            // else {
+            //     while (imgPost.firstChild) imgPost.removeChild(imgPost.firstChild);
+            // }
 
             // <!-- <img class="img-profile" src="https://picsum.photos/200/300" alt="user-img"> -->
         })
@@ -82,7 +82,7 @@ thisForm.addEventListener('submit', async function (e) {
     formdata.append("name", name);
     formdata.append("description", description);
     formdata.append("category", category);
-    formdata.append("image", fileInput.files[0], fileInput.value);
+    // formdata.append("image", fileInput.files[0], fileInput.value);
 
     var requestOptions = {
         method: 'POST',
