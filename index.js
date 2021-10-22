@@ -7,6 +7,9 @@ const frase = document.getElementById('comment');
 const contentImg = document.getElementById('content-img');
 const postCategory = document.getElementById('postCategory');
 const postSubmit = document.getElementById("postSubmit");
+const timeDate = document.getElementById("time-date");
+
+var deleteCategory;
 // const imgPost = document.getElementById('cImg');
 
 function getRandomPost() {
@@ -14,16 +17,24 @@ function getRandomPost() {
     while (stock.firstChild) stock.removeChild(stock.firstChild);
     while (frase.firstChild) frase.removeChild(frase.firstChild);
     while (postCategory.firstChild) postCategory.removeChild(postCategory.firstChild);
+    
+    document.getElementById("postCategory").classList.remove(deleteCategory);
 
     let newDiv = document.createElement("div");
-    newDiv.innerHTML = 'Cargando Publicación...';
+    newDiv.innerHTML = 'Cargando UPost...';
     stock.appendChild(newDiv);
 
     fetch(URL_API_GET_ONE_RANDOM_POST)
         .then(response => response.json())
         .then((res) => {
 
-            
+
+            let cumpleanos = new Date(res.created);
+            let year = cumpleanos.getUTCFullYear();
+            let month = cumpleanos.getUTCMonth() + 1;
+            let day = cumpleanos.getUTCDate();
+
+            let fullDate = day +"-"+ month +"-"+ year;
             
 
             while (stock.firstChild) stock.removeChild(stock.firstChild);
@@ -35,14 +46,20 @@ function getRandomPost() {
 
             // newImg.classList.add("card-img");
             // newImg.src = URL_API_GET_IMAGE + res.image; 
+            deleteCategory= res.category;
 
-            newDiv.innerHTML = '@' + res.name;
+            newDiv.innerHTML = '#' + res.name;
             newComent.innerHTML = res.description;
             newCategory.innerHTML = " " + res.category + " ";
+            timeDate.innerHTML = fullDate;
 
             stock.appendChild(newDiv);
             frase.appendChild(newComent);
             postCategory.appendChild(newCategory);
+
+            //Add class to Caregory
+            postCategory.classList.add(res.category);
+            
             // imgPost.appendChild(newImg); 
 
             // if(res.image != '0' && res.image != 'No'){
@@ -64,7 +81,6 @@ function getRandomPost() {
         });
 }
 
-
 const thisForm = document.getElementById('myForm');
 thisForm.addEventListener('submit', async function (e) {
 
@@ -75,11 +91,12 @@ thisForm.addEventListener('submit', async function (e) {
 
     let name = document.getElementById('name').value;
     let description = document.getElementById('description').value;
+    description.slice(-1) == "." ? null :  description += ".";
     let category = document.getElementById('category').value;
     let fileInput = document.querySelector('#image');
 
     var formdata = new FormData();
-    formdata.append("name", name);
+    formdata.append("name", capitalizeFirstLetter(name));
     formdata.append("description", description);
     formdata.append("category", category);
     // formdata.append("image", fileInput.files[0], fileInput.value);
@@ -112,5 +129,14 @@ thisForm.addEventListener('submit', async function (e) {
     });
     
 });
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+function toggleTheme() {
+    var element = document.getElementById("theme");
+    element.classList.toggle("dark-mode");
+ }
 
 getRandomPost();
